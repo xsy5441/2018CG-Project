@@ -54,21 +54,32 @@ function animation() {
     lastTime = time;
     requestAnimationFrame( animation );
 }
+var car;
+function initCar() {
+    var mtlLoader = new THREE.MTLLoader();
+    mtlLoader.setPath('./assets/');
+    mtlLoader.load('car4.mtl', function(materials) {
 
-var path;
-var loader;
-function ObjLoader(){
-      loader=new THREE.OBJLoader();
-      loader.load('model/obj/teachhall.obj',function(object){
-          object.traverse(function (child) {
-              if ( child instanceof THREE.Mesh ) {
-                  child.material.map = texture;
-              }
+        materials.preload();
+        var objLoader = new THREE.OBJLoader();
+        objLoader.setMaterials(materials);
+        objLoader.setPath('./assets/');
+        objLoader.load('car4.obj', function(object) {
+            car = object;
+            car.children.forEach(function(item) {
+                item.castShadow = true;
+            });
+            car.position.z = -20;
+            car.position.y = 5;
 
-          });
-          object.position.y=95;
-          scene.add(object);
-      });
+            scene.add(car);
+
+        }, function() {
+            console.log('progress');
+        }, function() {
+            console.log('error');
+        });
+    });
 }
 
 function onWindowResize() {
@@ -83,8 +94,9 @@ function threeStart() {
     initScene();
     initLight();
     initControls();
+
     initPlane();
-    ObjLoader();
+    initCar();
     renderer.clear();
     animation();
     renderer.render(scene, camera);
