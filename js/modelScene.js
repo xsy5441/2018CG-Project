@@ -449,6 +449,324 @@ function initFountain() {
 	});
 }
 */
+
+function initTree() {	
+	var leafMat = new THREE.MeshPhongMaterial({
+	        //color: 0xEE7621, 
+	        color: 0x228b2e,
+	        shininess:0,
+	        shading:THREE.FlatShading,
+	    });
+
+	var trunkMat = new THREE.MeshPhongMaterial({
+	        color: 0x8b4500,
+	        shininess:0,
+	        shading:THREE.FlatShading,
+	});
+
+
+	var trunkGeom = new THREE.CubeGeometry( 5, 24, 5, 1 );
+	  trunkGeom.vertices[4].x += 1.0;
+	  trunkGeom.vertices[4].z += 1.0;
+	  trunkGeom.vertices[5].x += 1.0;
+	  trunkGeom.vertices[5].z -= 1.0;
+	  trunkGeom.vertices[0].x -= 1.0;
+	  trunkGeom.vertices[0].z -= 1.0;
+	  trunkGeom.vertices[1].x -= 1.0;
+	  trunkGeom.vertices[1].z += 1.0;
+	var trunk = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk.castShadow = true;
+	
+	var leafGeom = new THREE.IcosahedronGeometry(15, 0); // new THREE.SphereGeometry( 15, 6, 6 );
+	var leaf = new THREE.Mesh(leafGeom, leafMat);
+	leaf.position.y = 20;
+	leaf.castShadow = true;
+
+	var tree1 = new THREE.Group();
+	tree1.add(trunk);
+	tree1.add(leaf);
+	tree1.scale.set(0.5,0.5,0.5);
+	tree1.position.y = 5;	
+	tree1.position.x = -250;
+	tree1.position.z = -250;
+
+	var tree2 = new THREE.Group();
+	var trunk2 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk2.castShadow = true;
+	var leaf2 = new THREE.Mesh(leafGeom, leafMat);
+	leaf2.position.y = 20;
+	leaf2.castShadow = true;
+	tree2.add(trunk2);
+	tree2.add(leaf2);
+	tree2.scale.set(0.5,0.5,0.5);
+	tree2.position.y = 5;
+	tree2.position.x = -250;
+	tree2.position.z = -230;
+
+	var tree3 = new THREE.Group();
+	var trunk3 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk3.castShadow = true;
+	var leaf3 = new THREE.Mesh(leafGeom, leafMat);
+	leaf3.position.y = 20;
+	leaf3.castShadow = true;
+	tree3.add(trunk3);
+	tree3.add(leaf3);
+	tree3.scale.set(0.5,0.5,0.5);
+	tree3.position.y = 5;
+	tree3.position.x = -250;
+	tree3.position.z = -210;
+
+	var tree4 = new THREE.Group();
+	var trunk4 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk4.castShadow = true;
+	var leaf4 = new THREE.Mesh(leafGeom, leafMat);
+	leaf4.position.y = 20;
+	leaf4.castShadow = true;
+	tree4.add(trunk4);
+	tree4.add(leaf4);
+	tree4.scale.set(0.5,0.5,0.5);
+	tree4.position.y = 5;
+	tree4.position.x = -250;
+	tree4.position.z = -190;
+
+	var tree5 = new THREE.Group();
+	var trunk5 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk5.castShadow = true;
+	var leaf5 = new THREE.Mesh(leafGeom, leafMat);
+	leaf5.position.y = 20;
+	leaf5.castShadow = true;
+	tree5.add(trunk5);
+	tree5.add(leaf5);
+	tree5.scale.set(0.5,0.5,0.5);
+	tree5.position.y = 5;
+	tree5.position.x = -250;
+	tree5.position.z = -170;
+
+	var tree6 = new THREE.Group();
+	var trunk6 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk6.castShadow = true;
+	var leaf6 = new THREE.Mesh(leafGeom, leafMat);
+	leaf6.position.y = 20;
+	leaf6.castShadow = true;
+	tree6.add(trunk6);
+	tree6.add(leaf6);
+	tree6.scale.set(0.5,0.5,0.5);
+	tree6.position.y = 5;
+	tree6.position.x = -250;
+	tree6.position.z = -150;
+
+	var tree7 = new THREE.Group();
+	var trunk7 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk7.castShadow = true;
+	var leaf7 = new THREE.Mesh(leafGeom, leafMat);
+	leaf7.position.y = 20;
+	leaf7.castShadow = true;
+	tree7.add(trunk7);
+	tree7.add(leaf7);
+	tree7.scale.set(0.5,0.5,0.5);
+	tree7.position.y = 5;
+	tree7.position.x = -250;
+	tree7.position.z = -130;
+
+	var tree8 = new THREE.Group();
+	var trunk8 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk8.castShadow = true;
+	var leaf8 = new THREE.Mesh(leafGeom, leafMat);
+	leaf8.position.y = 20;
+	leaf8.castShadow = true;
+	tree8.add(trunk8);
+	tree8.add(leaf8);
+	tree8.scale.set(0.5,0.5,0.5);
+	tree8.position.y = 5;
+	tree8.position.x = -90;
+	tree8.position.z = -250;
+
+	var tree9 = new THREE.Group();
+	var trunk9 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk9.castShadow = true;
+	var leaf9 = new THREE.Mesh(leafGeom, leafMat);
+	leaf9.position.y = 20;
+	leaf9.castShadow = true;
+	tree9.add(trunk9);
+	tree9.add(leaf9);
+	tree9.scale.set(0.5,0.5,0.5);
+	tree9.position.y = 5;
+	tree9.position.x = -90;
+	tree9.position.z = -230;
+
+	var tree10 = new THREE.Group();
+	var trunk10 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk10.castShadow = true;
+	var leaf10 = new THREE.Mesh(leafGeom, leafMat);
+	leaf10.position.y = 20;
+	leaf10.castShadow = true;
+	tree10.add(trunk10);
+	tree10.add(leaf10);
+	tree10.scale.set(0.5,0.5,0.5);
+	tree10.position.y = 5;
+	tree10.position.x = -90;
+	tree10.position.z = -210;
+
+	var tree11 = new THREE.Group();
+	var trunk11 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk11.castShadow = true;
+	var leaf11 = new THREE.Mesh(leafGeom, leafMat);
+	leaf11.position.y = 20;
+	leaf11.castShadow = true;
+	tree11.add(trunk11);
+	tree11.add(leaf11);
+	tree11.scale.set(0.5,0.5,0.5);
+	tree11.position.y = 5;
+	tree11.position.x = -90;
+	tree11.position.z = -190;
+
+	var tree12 = new THREE.Group();
+	var trunk12 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk12.castShadow = true;
+	var leaf12 = new THREE.Mesh(leafGeom, leafMat);
+	leaf12.position.y = 20;
+	leaf12.castShadow = true;
+	tree12.add(trunk12);
+	tree12.add(leaf12);
+	tree12.scale.set(0.5,0.5,0.5);
+	tree12.position.y = 5;
+	tree12.position.x = -90;
+	tree12.position.z = -170;
+
+	var tree13 = new THREE.Group();
+	var trunk13 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk13.castShadow = true;
+	var leaf13 = new THREE.Mesh(leafGeom, leafMat);
+	leaf13.position.y = 20;
+	leaf13.castShadow = true;
+	tree13.add(trunk13);
+	tree13.add(leaf13);
+	tree13.scale.set(0.5,0.5,0.5);
+	tree13.position.y = 5;
+	tree13.position.x = -90;
+	tree13.position.z = -150;
+
+	var tree14 = new THREE.Group();
+	var trunk14 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk14.castShadow = true;
+	var leaf14 = new THREE.Mesh(leafGeom, leafMat);
+	leaf14.position.y = 20;
+	leaf14.castShadow = true;
+	tree14.add(trunk14);
+	tree14.add(leaf14);
+	tree14.scale.set(0.5,0.5,0.5);
+	tree14.position.y = 5;
+	tree14.position.x = -90;
+	tree14.position.z = -130;
+
+	var tree15 = new THREE.Group();
+	var trunk15 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk15.castShadow = true;
+	var leaf15 = new THREE.Mesh(leafGeom, leafMat);
+	leaf15.position.y = 20;
+	leaf15.castShadow = true;
+	tree15.add(trunk15);
+	tree15.add(leaf15);
+	tree15.scale.set(0.5,0.5,0.5);
+	tree15.position.y = 5;
+	tree15.position.x = -90;
+	tree15.position.z = -110;
+
+	var tree16 = new THREE.Group();
+	var trunk16 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk16.castShadow = true;
+	var leaf16 = new THREE.Mesh(leafGeom, leafMat);
+	leaf16.position.y = 20;
+	leaf16.castShadow = true;
+	tree16.add(trunk16);
+	tree16.add(leaf16);
+	tree16.scale.set(0.5,0.5,0.5);
+	tree16.position.y = 5;
+	tree16.position.x = -90;
+	tree16.position.z = -90;
+
+	var tree17 = new THREE.Group();
+	var trunk17 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk17.castShadow = true;
+	var leaf17 = new THREE.Mesh(leafGeom, leafMat);
+	leaf17.position.y = 20;
+	leaf17.castShadow = true;
+	tree17.add(trunk17);
+	tree17.add(leaf17);
+	tree17.scale.set(0.5,0.5,0.5);
+	tree17.position.y = 5;
+	tree17.position.x = -90;
+	tree17.position.z = -70;
+
+	var tree18 = new THREE.Group();
+	var trunk18 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk18.castShadow = true;
+	var leaf18 = new THREE.Mesh(leafGeom, leafMat);
+	leaf18.position.y = 20;
+	leaf18.castShadow = true;
+	tree18.add(trunk18);
+	tree18.add(leaf18);
+	tree18.scale.set(0.5,0.5,0.5);
+	tree18.position.y = 5;
+	tree18.position.x = -90;
+	tree18.position.z = -50;
+
+	var tree19 = new THREE.Group();
+	var trunk19 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk19.castShadow = true;
+	var leaf19 = new THREE.Mesh(leafGeom, leafMat);
+	leaf19.position.y = 20;
+	leaf19.castShadow = true;
+	tree19.add(trunk19);
+	tree19.add(leaf19);
+	tree19.scale.set(0.5,0.5,0.5);
+	tree19.position.y = 5;
+	tree19.position.x = -90;
+	tree19.position.z = -30;
+
+	var tree20 = new THREE.Group();
+	var trunk20 = new THREE.Mesh(trunkGeom, trunkMat);
+	trunk20.castShadow = true;
+	var leaf20 = new THREE.Mesh(leafGeom, leafMat);
+	leaf20.position.y = 20;
+	leaf20.castShadow = true;
+	tree20.add(trunk20);
+	tree20.add(leaf20);
+	tree20.scale.set(0.5,0.5,0.5);
+	tree20.position.y = 5;
+	tree20.position.x = -90;
+	tree20.position.z = -10;
+
+
+	scene.add(tree1);
+	scene.add(tree2);
+	scene.add(tree3);
+	scene.add(tree4);
+	scene.add(tree5);
+	scene.add(tree6);
+	scene.add(tree7);
+	scene.add(tree8);
+	scene.add(tree9);
+	scene.add(tree10);
+	scene.add(tree11);
+	scene.add(tree12);
+	scene.add(tree13);
+	scene.add(tree14);
+	scene.add(tree15);
+	scene.add(tree16);
+	scene.add(tree17);
+	scene.add(tree18);
+	scene.add(tree19);
+	scene.add(tree20);
+	//scene.add(tree21);
+	//scene.add(tree22);
+	//scene.add(tree23);
+	//scene.add(tree24);
+
+	
+}
+
+
 function modelScene() {
 	initVilla1();
 	initVilla2();
@@ -465,5 +783,5 @@ function modelScene() {
 	initPublicBuilding();
 	initClockTower();
 	//initFountain();
-	
+	initTree();
 }
