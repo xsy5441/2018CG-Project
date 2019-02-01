@@ -14,10 +14,14 @@ function initVilla1() {
 	        villa1.children.forEach(function(item) {
 	            item.castShadow = true;
 	        });
-	        villa1.position.z = -20;
-	        villa1.position.x = -750;
+
+	        villa1.rotation.y = -10.0/180 * Math.PI;
+	        villa1.position.z = -180;
+	        villa1.position.x = -770;
 			villa1.position.y = 0;
 			villa1.scale.set(0.005,0.005,0.005);
+			//villa1.updateMatrix();
+			
 			scene.add(villa1);
 
 	    }, function() {
@@ -42,8 +46,9 @@ function initVilla2() {
 	        villa2.children.forEach(function(item) {
 	            item.castShadow = true;
 	        });
-	        villa2.position.z = 80;
-	        villa2.position.x = -750;
+	        villa2.rotation.y = -10.0/180 * Math.PI;
+	        villa2.position.z = -90;
+	        villa2.position.x = -770;
 			villa2.position.y = 0;
 			villa2.scale.set(0.005,0.005,0.005);
 			scene.add(villa2);
@@ -411,6 +416,39 @@ function initPublicBuilding() {
 	});
 }
 
+
+
+/*var fountain;
+function initFountain() {
+	var mtlLoader = new THREE.MTLLoader();
+	mtlLoader.setPath('./assets/');
+	mtlLoader.load('fountain.mtl', function(materials) {
+	    materials.preload();
+	    var objLoader = new THREE.OBJLoader();
+	    objLoader.setMaterials(materials);
+	    objLoader.setPath('./assets/');
+	    objLoader.load('fountain.obj', function(object) {
+	        fountain = object;
+	        fountain.children.forEach(function(item) {
+	            item.castShadow = true;
+	        });
+
+	        //fountain.rotation.y = -10.0/180 * Math.PI;
+	        fountain.position.z = 20;
+	        fountain.position.x = 30;
+			fountain.position.y = 0;
+			fountain.scale.set(0.005,0.005,0.005);
+			
+			scene.add(fountain);
+
+	    }, function() {
+	        console.log('progress');
+	    }, function() {
+	        console.log('error');
+	    });
+	});
+}
+*/
 function modelScene() {
 	initVilla1();
 	initVilla2();
@@ -426,5 +464,6 @@ function modelScene() {
 	initLibrary();
 	initPublicBuilding();
 	initClockTower();
+	//initFountain();
 	
 }
