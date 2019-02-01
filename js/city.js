@@ -39,9 +39,16 @@ function initControls(){
     controls.lookSpeed = 0.05;
     controls.lookVertical = true;
 }
+
+function initGrid(){
+    var helper = new THREE.GridHelper( 500, 50 );
+    helper.setColors( 0x0000ff, 0x808080 );
+    scene.add( helper );
+}
+
 var plane;
 function initPlane(){
-    plane = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshBasicMaterial( { color: 0x101018 } ) );
+    plane = new THREE.Mesh( new THREE.PlaneGeometry( 500, 500 ), new THREE.MeshBasicMaterial( { color: 0x101018 } ) );
     plane.rotation.x = - 90 * Math.PI / 180;
     plane.position.set(0,0,0);
     scene.add( plane );
@@ -69,8 +76,9 @@ function initCar() {
             car.children.forEach(function(item) {
                 item.castShadow = true;
             });
-            car.position.z = -20;
-            car.position.y = 5;
+            car.position.z = 20;
+            car.position.x = 30;
+            car.position.y = 0;
 
             scene.add(car);
 
@@ -81,6 +89,7 @@ function initCar() {
         });
     });
 }
+
 
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -95,7 +104,10 @@ function threeStart() {
     initLight();
     initControls();
 
-    initPlane();
+    //initPlane();
+    initGrid();
+    
+    modelScene();
     initCar();
     renderer.clear();
     animation();
