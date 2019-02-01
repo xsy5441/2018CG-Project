@@ -3,7 +3,6 @@
  * @author alteredq / http://alteredqualia.com/
  * @author paulirish / http://paulirish.com/
  */
-
 THREE.FirstPersonControls = function ( object, domElement ) {
 
 	this.object = object;
@@ -30,6 +29,7 @@ THREE.FirstPersonControls = function ( object, domElement ) {
 	this.verticalMax = Math.PI;
 
 	this.autoSpeedFactor = 0.0;
+
 
 	this.mouseX = 0;
 	this.mouseY = 0;
@@ -158,6 +158,7 @@ THREE.FirstPersonControls = function ( object, domElement ) {
 			case 70: /*F*/ this.moveDown = true; break;
 
 			case 81: /*Q*/ this.freeze = !this.freeze; break;
+			case 86: /*V*/ this.isInCar = !this.isInCar; break;
 
 		}
 
@@ -208,15 +209,22 @@ THREE.FirstPersonControls = function ( object, domElement ) {
 		}
 
 		var actualMoveSpeed = delta * this.movementSpeed;
-
-		if ( this.moveForward || ( this.autoForward && !this.moveBackward ) ) this.object.translateZ( - ( actualMoveSpeed + this.autoSpeedFactor ) );
-		if ( this.moveBackward ) this.object.translateZ( actualMoveSpeed );
-
-		if ( this.moveLeft ) this.object.translateX( - actualMoveSpeed );
-		if ( this.moveRight ) this.object.translateX( actualMoveSpeed );
-
-		if ( this.moveUp ) this.object.translateY( actualMoveSpeed );
-		if ( this.moveDown ) this.object.translateY( - actualMoveSpeed );
+		if ( this.moveForward || ( this.autoForward && !this.moveBackward ) ) {
+			this.object.translateZ(-(actualMoveSpeed + this.autoSpeedFactor));
+		}
+		if ( this.moveBackward ) {
+			this.object.translateZ(actualMoveSpeed);
+		}
+		if ( this.moveLeft ) {
+			if (isMouse) this.object.translateX(-actualMoveSpeed);
+			else this.lon -= rspeed;
+		}
+		if ( this.moveRight ) {
+			if (isMouse) this.object.translateX(actualMoveSpeed);
+			else this.lon += rspeed;
+		}
+		if ( this.moveUp ) if(isMouse)this.object.translateY( actualMoveSpeed );
+		if ( this.moveDown ) if(isMouse)this.object.translateY( - actualMoveSpeed );
 
 		var actualLookSpeed = delta * this.lookSpeed;
 
@@ -234,9 +242,10 @@ THREE.FirstPersonControls = function ( object, domElement ) {
 
 		}
 
-		this.lon += this.mouseX * actualLookSpeed;
-		if( this.lookVertical ) this.lat -= this.mouseY * actualLookSpeed * verticalLookRatio;
-
+		if(isMouse) {
+			this.lon += this.mouseX * actualLookSpeed;
+			if (this.lookVertical) this.lat -= this.mouseY * actualLookSpeed * verticalLookRatio;
+		}
 		this.lat = Math.max( - 85, Math.min( 85, this.lat ) );
 		this.phi = THREE.Math.degToRad( 90 - this.lat );
 

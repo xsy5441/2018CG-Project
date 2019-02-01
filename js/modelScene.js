@@ -106,7 +106,7 @@ function initMall() {
 	        });
 	        mall.position.z = -60;
 	        mall.position.x = -180;
-	        mall.position.y = 0;
+	        mall.position.y = -1;
 	        mall.scale.set(0.0015,0.0015,0.0015);
 
 	        scene.add(mall);
@@ -136,7 +136,7 @@ function initGovernment() {
 	        });
 	        government.position.z = -200;
 	        government.position.x = -180;
-	        government.position.y = 0;
+	        government.position.y = -4;
 	        government.scale.set(0.003,0.003,0.003);
 
 	        scene.add(government);
